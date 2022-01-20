@@ -9,9 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/welcome', 'WelcomeController@index') ->name('/');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'kegiatan'], function(){
@@ -33,7 +31,7 @@ Route::group(['prefix' => 'tambah-data'], function() {
 
 Route::group(['prefix' => 'edit-data'], function() {
     route::get('siswa/{user}', 'DataSiswaController@edit')->name('edit-data.siswa');
-    route::get('activity/{activity}', 'ManageKegiatan@edit')->name('edit-data.activity');
+    route::get('activity/{activity}', 'ManageKegiatanController@edit')->name('edit.data.activity');
 });
 Route::group(['prefix' => 'destroy'], function() {
     route::delete('data/siswa/{user}', 'DataSiswaController@destroy')->name('destroy.data.siswa');
@@ -59,7 +57,7 @@ Route::group(['prefix' => 'verifikasi-pendaftaran'], function(){
 });
 Route::group(['prefix' => 'user'], function(){
     Route::get('ambil-form/{register}', 'PaymentController@create')->name('user.ambil-form');
-    Route::post('verifikasi-pembayaran/{register}', 'PaymentController@store')->name('user-verifikasi-pembayaran');
+    Route::post('verifikasi-pembayaran','PaymentController@store')->name('user.verifikasi.pembayaran');
 });
 Route::group(['prefix' => 'pendaftaran'], function(){
     Route::get('pending', 'Pendaftaran\PendingController@index')->name('pendaftaran.pending');

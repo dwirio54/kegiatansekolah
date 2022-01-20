@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="mb-3">
-                            <a href="{{route('cetak.semua-data.activity')}}" class="btn btn-success">Cetak semua data</a>
+                            <a href="{{route('cetak.semua-data.activity')}}" class="btn btn-primary">Cetak semua data</a>
                             <a href="{{route('manage-kegiatan.add-form')}}" class="btn btn-primary">Tambah Kegiatan</a>
                         </div>
                         <form action="{{route('cetak.activity')}}" method="get">
@@ -56,7 +56,7 @@
                                             <form action="{{route('destroy.data.activity', $activity->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{route('edit-data.activity', $activity->id)}}" class="btn btn-secondary btn-sm">Edit</a>
+                                                <a href="{{route('edit.data.activity', $activity->id)}}" class="btn btn-secondary btn-sm">Edit</a>
                                                 <button type="submit" class="btn btn-secondary btn-sm">Hapus</button>
                                             </form>
                                         </form>

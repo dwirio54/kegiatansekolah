@@ -12,7 +12,7 @@
                         <h4>Hello, {{$pembayaran->user->name}}</h4>
                         Silahkan masukan bukti pembayaran anda.
                     </div>
-                    <form action="{{route('user.verifikasi-pembayaran')}}" enctype="multipart/form-data" method="post">
+                    <form action="{{route('user.verifikasi.pembayaran')}}" enctype="multipart/form-data" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -32,7 +32,6 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <textarea name="description" id="" class="form-control">
-
                                     </textarea>
                                 </div>
                             </div>
