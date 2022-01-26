@@ -13,6 +13,7 @@ class WelcomeController extends Controller
             'kegiatans' => Activity::paginate(3),
             'activitys' => Activity::all(),
         ];
+
         return view('index', $data);
     }
 }

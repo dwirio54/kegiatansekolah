@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use App\Activity;
+
 class ManagekegiatanController extends Controller
 {
     public function index()
@@ -20,18 +21,18 @@ class ManagekegiatanController extends Controller
 
     public function edit($id)
     {
-       $kegiatan = Activity::findOrFail($id);
+        $kegiatan = Activity::findOrFail($id);
 
-       return view('kegiatan.edit', compact('kegiatan'));
+        return view('kegiatan.edit', compact('kegiatan'));
     }
 
     public function store()
     {
         $moment = Activity::create($this->validateRequest());
 
-       $this->storeImage($moment);
+        $this->storeImage($moment);
 
-       flash()->success('Data Kegiatan berhasil dihapus');
+        flash()->success('Data Kegiatan berhasil dihapus');
         return redirect(route('manage-kegiatan'));
     }
 
@@ -42,21 +43,21 @@ class ManagekegiatanController extends Controller
             'idr' => 'required',
             'status' => 'required',
             'desc' => 'required',
-            'jumlah_peserta' =>'required',
+            'jumlah_peserta' => 'required',
             'tgl_awal' => 'required',
             'tgl_selesai' => 'required',
             'image'  => 'required|mimes:jpeg,jpg,png|max:5000',
-        ]), function(){
-            if(request()->hasFile('image')){
+        ]), function () {
+            if (request()->hasFile('image')) {
                 request()->validate([
                     'image' => 'required|mimes:jpeg,jpg,png|max:5000',
                 ]);
-
             }
         });
     }
-    private function storeImage($moment){
-        if (request()->has('image')){
+    private function storeImage($moment)
+    {
+        if (request()->has('image')) {
             $moment->update([
                 'image' => request()->image->store('uploads', 'public'),
             ]);
@@ -68,7 +69,8 @@ class ManagekegiatanController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $activity = Activity::findOrFail($id);
+        $activity =  Activity::findOrFail($id);
+
         $activity->delete($request->all());
 
         if (\File::exists(public_path('storage/' . $activity->image))) {

@@ -10962,10 +10962,14 @@ a.text-dark:focus {
   }
 }
 
+body {
+  background-color: #e8e9eb;
+  opacity: 1;
+}
+
 .navbar-laravel {
   background-image: linear-gradient(to right, #5433ff, #20bdff, #a5fecb);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  color: white;
 }
 
 .jumbotron {
