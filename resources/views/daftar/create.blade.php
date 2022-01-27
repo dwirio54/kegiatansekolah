@@ -45,20 +45,26 @@
                     @csrf
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Nama</label>
                                 <input type="text" class="form-control" value="{{ Auth::user()->name }}">
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Jumlah Tiket</label>
+                                <input type="text" name="qty" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Kode Kegiatan</label>
                                 <input type="text" class="form-control" value="{{$activity->kode_activity}}">
                                 <input type="hidden" class="form-control" name="activity_id" value="{{$activity->id}}">
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Harga</label>
                                 <input type="text" class="form-control" value="{{$activity->idr}}">

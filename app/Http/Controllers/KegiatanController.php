@@ -36,6 +36,7 @@ class KegiatanController extends Controller
             'user_id'   => $user->id,
             'activity_id' => $request->activity_id,
             'status' => $request->status,
+            'qty' => $request->qty
         ]);
 
         $to = Mail::to($user->email)->send(new PendaftaranMail($register));
