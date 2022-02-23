@@ -7,6 +7,7 @@ use App\User;
 use App\Activity;
 use App\Register;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class HomeController extends Controller
 {

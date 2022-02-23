@@ -11,9 +11,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                {{-- <li class="nav-item">
-                    <a href="{{url('/')}}" class="nav-link">Welcome Page</a>
-                </li> --}}
                 @auth
                 <li class="nav-item hover">
                     <a href="{{route('dashboard.index')}}" class="nav-link text-white">DASHBOARD</a>
@@ -33,8 +30,11 @@
                 </li>
                 @endrole
                 @role('student')
-                <li class="nav-item hover">
-                    <a href="{{route('/')}}" class="nav-link text-white">{{ __('CEK KEGIATAN') }}</a>
+                <li class="nav-item">
+                    <a href="{{route('/')}}" class="nav-link">{{ __('CEK KEGIATAN') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('activity')}}" class="nav-link">{{ __('KEGIATAN SEKOLAH') }}</a>
                 </li>
                 @endrole
             </ul>

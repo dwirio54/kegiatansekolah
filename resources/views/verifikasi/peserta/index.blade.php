@@ -7,7 +7,7 @@
             <div class="card border-0">
                 <div class="card-body">
                     <div class="mb-3">
-                        <a href="{{route('verifikasi-pendaftaran.ulang')}}" class="btn btn-primary">Daftar Ulang</a>
+                        <a href="{{route('verifikasi-pendaftaran.ulang')}}" class="btn btn-secondary">Daftar Ulang</a>
                         <a href="{{route('verifikasi-pendaftaran.peserta')}}" class="btn btn-secondary">Peserta</a>
                     </div>
                     <form action="" method="post">
@@ -49,20 +49,20 @@
                             </thead>
                             <tbody>
                                 @foreach($registers as $register)
-                                <tr>
-                                    <td>{{$register->activity->kode_activity}}</td>
-                                    <td>Field Belum dibuat</td>
-                                    <td>{{$register->user->name}}</td>
-                                    <td>{{$register->created_at->diffForHumans()}}</td>
-                                    <td>
-                                        <span class="badge badge-info">
-                                            {{$register->status}}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="http://" class="btn btn-info btn-sm">Cetak Sertifikat</a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>{{$register->activity->kode_activity}}</td>
+                                        <td>Field Belum dibuat</td>
+                                        <td>{{$register->user->name}}</td>
+                                        <td>{{$register->created_at->diffForHumans()}}</td>
+                                        <td>
+                                            <span class="badge badge-info">
+                                                {{$register->status}}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href="{{route('cetak.sertifikat', $register->id)}}" class="btn btn-info btn-sm">Cetak Sertifikat</a>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

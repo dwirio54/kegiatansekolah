@@ -25,10 +25,6 @@ Route::group(['prefix' => 'kegiatan'], function () {
     Route::get('/create{kegiatan}', 'KegiatanController@create')->name('kegiatan.create');
     Route::post('/store', 'KegiatanController@store')->name('kegiatan.store');
 });
-Route::get('/pendaftaran', 'DaftarController@index')->name('daftar.index');
-Route::get('/dashboard', 'HomeController@index')->name('dashboard.index');
-
-Route::get('/laporan', 'LaporanController@index')->name('laporan.index');
 
 Route::group(['prefix' => 'data'], function () {
     Route::get('/siswa', 'DataSiswaController@index')->name('data.siswa');
@@ -83,3 +79,12 @@ Route::group(['prefix' => 'cetak'], function () {
     Route::get('activity', 'Report\ActivityController@index')->name('cetak.activity');
     route::get('data-activity', 'Report\ActivityController@edit')->name('cetak.semua-data.activity');
 });
+
+Route::group(['prefix' => 'activity'], function () {
+    route::get('/', 'KegiatansController@index')->name('activity');
+});
+
+route::get('cetak/sertifikat/{register}', 'Pendaftaran\VerifiedController@sertifikat')->name('cetak.sertifikat');
+Route::get('/pendaftaran', 'DaftarController@index')->name('daftar.index');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard.index');
+Route::get('/laporan', 'LaporanController@index')->name('laporan.index');

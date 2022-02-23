@@ -5,8 +5,8 @@
     Silahkan buka link ini untuk melakukan upload buku pembayaran anda
     dengan kode pembayaran
 </p>
-<p> Kode pendaftaran : {{$register->activity->kode_activity}}</p>
-<p> Jumlah Tiket     : {{$register->qty}}
+<P>Jumlah Tiket : {{$register->qty}}</P>
+<P>Total Pembayaran : {{$register->qty * $register->activity->idr}}</P>
 <p> Total Pembayaran : {{$register->qty * $register->activity->idr}} </p>
 @component('mail::button', ['url' => "http://localhost/kegiatansekolah/public/user/ambil-form/{$register->id}"])
     Upload pembayaran
