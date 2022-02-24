@@ -88,3 +88,4 @@ route::get('cetak/sertifikat/{register}', 'Pendaftaran\VerifiedController@sertif
 Route::get('/pendaftaran', 'DaftarController@index')->name('daftar.index');
 Route::get('/dashboard', 'HomeController@index')->name('dashboard.index');
 Route::get('/laporan', 'LaporanController@index')->name('laporan.index');
+Route::get('result/{register}', 'ResultController@show')->name('result');
